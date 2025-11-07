@@ -47,5 +47,15 @@ python3 anafi_dos.py
 ```bash
 python3 anafi_dos.py --ip 192.168.42.1 --port 14550 --protocol udp --burst 25 --delay 0.05 --persistent
 ```
+```nash
+| Option        | Description                                  | Default        |
+|---------------|----------------------------------------------|----------------|
+| `--ip`        | Drone IP address                             | `192.168.42.1` |
+| `--port`      | MAVLink port                                 | `14550`        |
+| `--protocol`  | `udp` or `tcp`                               | `udp`          |
+| `--burst`     | Number of malicious packets per burst        | `10`           |
+| `--delay`     | Delay between packets (seconds)              | `0.1`          |
+| `--persistent`| Infinite loop – reconnect & re-attack        | `off`          |
 
+```
 ---
