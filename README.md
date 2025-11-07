@@ -36,3 +36,19 @@ This enhanced PoC implements a **reliable, persistent, and multi-protocol** atta
 
 ```bash
 pip install pymavlink
+
+---
+
+## Vulnerability Overview
+
+The Parrot ANAFI USA drone does **not properly validate** the `mission_type` field in incoming MAVLink `MISSION_COUNT` messages.
+
+Sending a `MISSION_COUNT` message with an **invalid `mission_type` value (e.g., 17)** causes a **null pointer dereference** in the internal function `mavlink_itf_reset_mission_data()`, resulting in:
+
+- Immediate crash of the `control` service  
+- Full disconnection of the Ground Control Station (GCS)  
+- Complete loss of telemetry and control (DoS)  
+
+This enhanced PoC implements a **reliable, persistent, and multi-protocol** attack with automatic reconnect & retry logic.
+
+---
